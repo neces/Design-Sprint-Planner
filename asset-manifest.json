@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Design-Sprint-Planner/static/css/main.d8b8e718.chunk.css",
-    "main.js": "/Design-Sprint-Planner/static/js/main.24d284ff.chunk.js",
-    "main.js.map": "/Design-Sprint-Planner/static/js/main.24d284ff.chunk.js.map",
+    "main.css": "/Design-Sprint-Planner/static/css/main.6fd75266.chunk.css",
+    "main.js": "/Design-Sprint-Planner/static/js/main.cdf8b7cd.chunk.js",
+    "main.js.map": "/Design-Sprint-Planner/static/js/main.cdf8b7cd.chunk.js.map",
     "runtime-main.js": "/Design-Sprint-Planner/static/js/runtime-main.9e57bc78.js",
     "runtime-main.js.map": "/Design-Sprint-Planner/static/js/runtime-main.9e57bc78.js.map",
     "static/css/2.7fed1a52.chunk.css": "/Design-Sprint-Planner/static/css/2.7fed1a52.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.71446d38.chunk.js.map": "/Design-Sprint-Planner/static/js/2.71446d38.chunk.js.map",
     "index.html": "/Design-Sprint-Planner/index.html",
     "static/css/2.7fed1a52.chunk.css.map": "/Design-Sprint-Planner/static/css/2.7fed1a52.chunk.css.map",
-    "static/css/main.d8b8e718.chunk.css.map": "/Design-Sprint-Planner/static/css/main.d8b8e718.chunk.css.map",
+    "static/css/main.6fd75266.chunk.css.map": "/Design-Sprint-Planner/static/css/main.6fd75266.chunk.css.map",
     "static/js/2.71446d38.chunk.js.LICENSE.txt": "/Design-Sprint-Planner/static/js/2.71446d38.chunk.js.LICENSE.txt",
     "static/media/flash.be2db06a.svg": "/Design-Sprint-Planner/static/media/flash.be2db06a.svg"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.9e57bc78.js",
     "static/css/2.7fed1a52.chunk.css",
     "static/js/2.71446d38.chunk.js",
-    "static/css/main.d8b8e718.chunk.css",
-    "static/js/main.24d284ff.chunk.js"
+    "static/css/main.6fd75266.chunk.css",
+    "static/js/main.cdf8b7cd.chunk.js"
   ]
 }
