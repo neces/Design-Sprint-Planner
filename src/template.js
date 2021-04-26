@@ -465,14 +465,14 @@ export const template5Day = [
         day: 1,
         startTime: "T14:00:00",
         endTime: "T14:30:00",
-        backgroundColor: "#CD7672"
+        backgroundColor: "#DBA19F"
     },
     {
         title: "Sketching Ideas (Offline)",
         day: 1,
         startTime: "T14:30:00",
         endTime: "T14:50:00",
-        backgroundColor: "#CD7672"
+        backgroundColor: "#DBA19F"
     },
     {
         title: "Crazy 8s",
@@ -493,14 +493,14 @@ export const template5Day = [
         day: 2,
         startTime: "T10:00:00",
         endTime: "T10:30:00",
-        backgroundColor: "#534666"
+        backgroundColor: "#8B7DA0"
     },
     {
         title: "Heat Map (Offline)",
         day: 2,
         startTime: "T10:30:00",
         endTime: "T10:45:00",
-        backgroundColor: "#534666"
+        backgroundColor: "#8B7DA0"
     },
     {
         title: "Speed Critique",

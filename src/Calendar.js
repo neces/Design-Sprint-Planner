@@ -1,5 +1,6 @@
 import React from 'react'
 import { ReactComponent as Flash } from './Assets/flash.svg'
+import { ReactComponent as PDF } from './Assets/pdf.svg'
 import { sprintDetails } from './sprint.js'
 import { template5Day, template4Day, templateOnline } from './template.js'
 
@@ -98,8 +99,12 @@ export default class Calendar extends React.Component {
   renderSidebar() {
     return (
       <div className='sidebar'>
-
-
+        <div className='sidebar-section-extra'>
+        <ReactToPrint
+          trigger={() => <button className='functionality-button'><PDF/></button>}
+          content={() => this.calendarRef.current}
+        />
+        </div>
         <div className='sidebar-section'>
           <h2>Design Sprint Templates</h2>
           {/* Pick amongst the most common Design Sprint templates below  */}
@@ -108,12 +113,6 @@ export default class Calendar extends React.Component {
           <button onClick={() => {this.handleAddTemplate('4day')}} className='template-button'>4 DAY</button>
           <button onClick={() => {this.handleAddTemplate('online')}} className='template-button'>ONLINE 5 DAY</button>
         </div>
-        </div>
-        <div className='sidebar-section'>
-        <ReactToPrint
-          trigger={() => <button className='functionality-button'>Export PDF</button>}
-          content={() => this.calendarRef.current}
-        />
         </div>
         <div className='sidebar-section'>
           <h2>Stages</h2>

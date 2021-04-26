@@ -102,6 +102,10 @@ button {
   padding-bottom: 0.7em;
 }
 
+.sidebar-section-extra {
+  padding-bottom: 2em;
+}
+
 .template-button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: 1.1em;
@@ -109,7 +113,7 @@ button {
 
 .functionality-button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  font-size: 1.1em;
+  font-size: 1.2em;
   float: right;
 }
 
