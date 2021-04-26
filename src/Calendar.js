@@ -5,7 +5,6 @@ import { sprintDetails } from './sprint.js'
 import { template5Day, template4Day, templateOnline } from './template.js'
 
 // FullCalendar Library
-// import FullCalendar, { formatDate, identity, preventDefault } from '@fullcalendar/react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -17,13 +16,6 @@ import Modal from '@material-ui/core/Modal'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
-// import Button from '@material-ui/core/Button'
-// import TextField from '@material-ui/core/TextField'
-// import Dialog from '@material-ui/core/Dialog'
-// import DialogActions from '@material-ui/core/DialogActions'
-// import DialogContent from '@material-ui/core/DialogContent'
-// import DialogContentText from '@material-ui/core/DialogContentText'
-// import DialogTitle from '@material-ui/core/DialogTitle'
 import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 
@@ -48,6 +40,7 @@ export default class Calendar extends React.Component {
     expanded: 'panel1'
   }
 
+  // Main render function that initialises the Calendar and calls to render navigation, sidebar and footer
   render() {
     return (
       <div>
@@ -75,9 +68,9 @@ export default class Calendar extends React.Component {
             slotMinTime={'08:00:00'}
             slotMaxTime={'20:00:00'}
             select={this.handleDateSelect}
-            eventContent={renderEventContent} // custom render function
+            eventContent={renderEventContent}
             eventClick={this.handleEventClick}
-            eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+            eventsSet={this.handleEvents}
             editable={true}
             droppable={true}
             dayHeaderFormat={{
@@ -96,6 +89,7 @@ export default class Calendar extends React.Component {
     )
   }
 
+  // Renders the sidebar and all the sections included, calls another method to render the Event library
   renderSidebar() {
     return (
       <div className='sidebar'>
@@ -107,7 +101,6 @@ export default class Calendar extends React.Component {
         </div>
         <div className='sidebar-section'>
           <h2>Design Sprint Templates</h2>
-          {/* Pick amongst the most common Design Sprint templates below  */}
           <div id='templates'>
           <button onClick={() => {this.handleAddTemplate('5day')}} className='template-button'>5 DAY</button>
           <button onClick={() => {this.handleAddTemplate('4day')}} className='template-button'>4 DAY</button>
@@ -117,7 +110,7 @@ export default class Calendar extends React.Component {
         <div className='sidebar-section'>
           <h2>Stages</h2>
         </div>
-        {/* Customize your own plan by dragging the events available or select a time on the calendar to create your own. If you want to know more about the activity, clicking on it will open up more infomation. */}
+        {/* Customize your own plan by dragging the events available or select a time on the calendar to create your own. If you want to know more about the activity, click on it. */}
         {this.renderEvents()}
 
         <div className='sidebar-section'>
@@ -139,6 +132,7 @@ export default class Calendar extends React.Component {
     )
   }
 
+  // Includes code for creating the Event library and modal window, that is opened when clicking on an event
   renderEvents() {
     return <div>
       <div id='external-events'>
@@ -265,42 +259,10 @@ export default class Calendar extends React.Component {
         </div>
       </Modal>
     }
-
-    {/* this.state.openEventModal === true &&
-      <div>
-     <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
-      <Dialog open={this.state.openEventModal} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={this.handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={this.handleAddEvent(this.label, '2018-09-01T00:00:00', '2018-09-01T01:00:00', 'red')} color="primary">
-            Subscribe
-          </Button>
-        </DialogActions>
-      </Dialog>
-      </div>
-    */}
 		</div>
   }
 
+  // Runs after the component is mounted and rendered and makes the event from the library draggable
   componentDidMount() {
     new Draggable((document.getElementById('external-events')), {
       itemSelector: '.task-button',
@@ -336,11 +298,10 @@ export default class Calendar extends React.Component {
     })
   }
 
+  // Creates a custom even when clicking on the calendar
   handleDateSelect = (selectInfo) => {
-    // this.handleOpenEvent()
-    // select title, description, start, end, backgroundColour
     let calendarApi = selectInfo.view.calendar
-    calendarApi.unselect() // clear date selection
+    calendarApi.unselect() // Clear date selection
     let title = prompt('Please enter a new title for your event')
 
 
@@ -360,14 +321,6 @@ export default class Calendar extends React.Component {
     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'?`)) {
       clickInfo.event.remove()
     }
-    // console.log(clickInfo.event.title)
-    // this.setState({
-    //   openEventModal: true,
-    //   clickInfo: clickInfo
-    // })
-    // read from a json file
-    // Open up modal with infobox of that id
-    // this one should have a delete button as
   }
 
   handleEvents = (events) => {
@@ -376,6 +329,7 @@ export default class Calendar extends React.Component {
     })
   }
 
+  // Filters the database to find the correct object to display on a modal
   handleOnClick = (id) => {
     let filtered = sprintDetails.filter(event => event.title === id)
     this.setState({
@@ -404,6 +358,7 @@ export default class Calendar extends React.Component {
     })
   }
 
+  // Switches between which template to load
   handleAddTemplate = (template) => {
     if (this.state.currentEvents != null) {
       this.handleDeleteEvents()
@@ -429,6 +384,7 @@ export default class Calendar extends React.Component {
     }
   }
 
+  // Function that transforms the information pulled from the calendar into actual dates for template events
   templateDate = (day, time) => {
     let calendarApi = this.calendarRef.current.getApi()
     let activeStart = calendarApi.view.activeStart
@@ -443,6 +399,7 @@ export default class Calendar extends React.Component {
     return (day + time)
   }
 
+  // Adds events for the template functions
   handleAddEvent = (title, start, end, color) => {
     let calendarApi = this.calendarRef.current.getApi()
     calendarApi.addEvent({
@@ -455,6 +412,7 @@ export default class Calendar extends React.Component {
     })
   }
 
+  // Clears the calendar
   handleDeleteEvents = () => {
     let calendarApi = this.calendarRef.current.getApi()
     calendarApi.removeAllEvents()
