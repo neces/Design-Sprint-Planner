@@ -98,43 +98,43 @@ export default class Calendar extends React.Component {
   renderSidebar() {
     return (
       <div className='sidebar'>
+
+
+        <div className='sidebar-section'>
+          <h2>Design Sprint Templates</h2>
+          {/* Pick amongst the most common Design Sprint templates below  */}
+          <div id='templates'>
+          <button onClick={() => {this.handleAddTemplate('5day')}} className='template-button'>5 DAY</button>
+          <button onClick={() => {this.handleAddTemplate('4day')}} className='template-button'>4 DAY</button>
+          <button onClick={() => {this.handleAddTemplate('online')}} className='template-button'>ONLINE 5 DAY</button>
+        </div>
+        </div>
+        <div className='sidebar-section'>
+        <ReactToPrint
+          trigger={() => <button className='functionality-button'>Export PDF</button>}
+          content={() => this.calendarRef.current}
+        />
+        </div>
+        <div className='sidebar-section'>
+          <h2>Stages</h2>
+        </div>
+        {/* Customize your own plan by dragging the events available or select a time on the calendar to create your own. If you want to know more about the activity, clicking on it will open up more infomation. */}
+        {this.renderEvents()}
+
         <div className='sidebar-section'>
           <FormControlLabel
             control={
               <Switch
                 checked={this.state.weekendsVisible}
                 onChange={this.handleWeekendsToggle}
-                color="default"
-                name="Weekend"
+                color="primary"
+                name="Show Weekend"
                 inputProps={{ 'aria-label': 'Weekends toggle' }}
               />
             }
-            label="Weekend"
+            label="Show Weekend"
           />
           <button onClick={() => {this.handleDeleteEvents()}} className='functionality-button'>Clear</button>
-        </div>
-
-        <div className='sidebar-section'>
-          <h2>Design Sprints</h2>
-          {/* Pick amongst the most common Design Sprint templates below  */}
-          <div id='templates'>
-          <button onClick={() => {this.handleAddTemplate('5day')}} className='template-button'>5 DAY</button>
-          <button onClick={() => {this.handleAddTemplate('4day')}} className='template-button'>4 DAY</button>
-          <button onClick={() => {this.handleAddTemplate('online')}} className='template-button'>ONLINE</button>
-        </div>
-        </div>
-
-        <div className='sidebar-section'>
-          <h2>Stages</h2>
-        </div>
-        {/* Customize your own plan by dragging the events available or select a time on the calendar to create your own. If you want to know more about the activity, clicking on it will open up more infomation. */}
-        {this.renderEvents()}
-        
-        <div className='sidebar-section'>
-        <ReactToPrint
-          trigger={() => <button className='functionality-button'>EXPORT</button>}
-          content={() => this.calendarRef.current}
-        />
         </div>
       </div>
     )
